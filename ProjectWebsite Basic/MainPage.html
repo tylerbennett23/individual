@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body onload="window_onload()" class="BackGround">
+
+    <div>
+    <center>
+        <input id="Profile" value="Profile" onclick="Profile_onClick()" class="Profile" type="button" style="position:absolute" />
+        <input id="Post" value="Post" onclick="Post_onClick()" class="Post" type="button" style="position:absolute" />
+        <input id="Settings" value="Settings" onclick="Settings_onClick()" class="Settings" type="button" style="position:absolute" />
+        <input id="Home" value="Home" onclick="Home_onClick()" class="Home" type="button" style="position:absolute" />
+        <input id="Search" value="Search" class="Search" type="text" style="position:absolute" />
+
+    </center>
+
+    <d iv class="dropdown" id="DropDown">
+        <input id="Messages" value="Messages" onclick="Mess_onClick()" class="div2" type="button" style="position:absolute; " />
+        <div class="dropdown-content" id="DropCont1">
+            <a onclick="Username1">Username1</a>
+            <a onclick="Username2">Username2</a>
+            <a onclick="Username3">Username3</a>
+        </div>
+    </div>
+
+    </div>
+
+    
+    <center>
+        <div class="div3" id="CF">
+        </div>
+        <input type="text" id="PostTxt" value="Update Status" style="position: absolute; border-radius: 8px; font-size: 20px; font-family: Arial, Helvetica, sans-serif; " hidden />
+        <input type="button" id="SubmitP" value="Submit" oncancel="Sub_onClick()" class="SubTxt" />
+    </center>
+
+    <center>
+        <div class="divP" id="divP" style="position:absolute">
+            <img id="PPI" src="download_(3).png" class="img1" style="position:absolute" />
+
+        </div>
+
+    </center>
+
+   
+</body>
+</html>
+<script>
+
+    var WNum = 0;
+
+    function window_onload() {
+        //document.getElementById("CF").style.width = (document.body.clientWidth / 1.64) + "px";
+
+        Messages.style.left = (document.body.clientWidth / 2) + "px";
+        DropCont1.style.left = ((document.body.clientWidth / 2) + 400)+ "px";
+        document.body.style.backgroundColor = "lightgrey";
+
+       // Home_onClick();
+       // Post_onClick();
+        Profile_onClick()
+    }
+
+    function Mess_onClick() {
+        //this was to test some stuff 
+        WNum = 0;
+        AllFunctions();
+    }
+
+    function Post_onClick() {
+        WNum = 0;
+        AllFunctions();
+        document.body.style.backgroundColor = "lightgrey";
+
+        document.getElementById("CF").hidden = true;
+        document.getElementById("PostTxt").hidden = false;
+        document.getElementById("SubmitP").hidden = false;
+
+        PostTxt.style.left = (document.body.clientWidth * 0.1991) + "px";
+        PostTxt.style.top = (document.body.clientWidth * 0.069) + "px";
+        document.getElementById("PostTxt").style.width = (document.body.clientWidth * 0.607) + "px";
+        document.getElementById("PostTxt").style.height = (document.body.clientWidth * 0.22) + "px";
+
+    }
+
+    function Home_onClick() {
+        WNum = 0;
+        document.body.style.backgroundColor = "lightgrey";
+
+        document.getElementById("CF").style.width = (document.body.clientWidth / 1.64) + "px";
+        document.getElementById("CF").style.height = (document.body.clientWidth / 1.64) + "px";
+
+        AllFunctions();
+    }
+
+    function Profile_onClick() {
+        document.getElementById("CF").style.width = (document.body.clientWidth * 0.607) + "px";
+        document.getElementById("CF").style.height = (document.body.clientWidth / 1.64) + "px";
+        document.getElementById("CF").hidden = false;
+
+        WNum = 1;
+        AllFunctions();
+    }
+
+    function Settings_onClick() {
+        WNum = 0;
+        document.getElementById("CF").style.width = ((document.body.clientWidth / 1.64) + 300) + "px";
+
+        AllFunctions();
+    }
+
+    function AllFunctions() {
+        if (WNum == 0) {
+            document.getElementById("PPI").hidden = true;
+            //document.getElementById("bgimg").hidden = true;
+            document.getElementById("divP").hidden = true;
+            document.getElementById("CF").hidden = false;
+            document.getElementById("SubmitP").hidden = true;
+            document.getElementById("PostTxt").hidden = true;
+
+
+        } else {
+            document.getElementById("PPI").hidden = false;
+            //document.getElementById("bgimg").hidden = false;
+            document.getElementById("divP").hidden = false;
+            document.getElementById("SubmitP").hidden = true;
+            document.getElementById("PostTxt").hidden = true;
+        }
+    }
+
+    window.addEventListener('resize', function () {
+        "use strict";
+        window.location.reload();
+    })
+
+</script>
+<style>
+
+    .img1 {
+        width: 200px;
+        height: 200px;
+        margin: -750px 0px;
+        border-radius: 100px;
+        border: solid;
+        position: absolute;
+        z-index: 2;
+    }
+
+    .BackGround {
+        background-image: url('BG.jpg');
+        backdrop-filter:blur(2px);
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+    }
+
+    .img2 {
+        border-radius: 8px;
+        height: 250px;
+        margin: 25px 0px;
+        z-index:1;
+        border: solid thin;
+    }
+
+    div {
+        background-color: powderblue;
+        height: 75px;
+        border: solid thin;
+        border-radius: 8px;
+    }
+
+    .div3 {
+        background-color: white;
+        margin: 25px 0px;
+        
+    }
+
+    .div2 {
+        margin: 17px 400px;
+        width: 150px;
+        height: 45px;
+        font-size: 25px;
+    }
+
+    .dropdown{
+        border: none;
+        width: 150px;
+        height: 45px;
+        margin: 0px 100px;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        overflow: auto;
+        margin: 62px 0px;
+        width: auto;
+        font-family: Arial, Helvetica, sans-serif;
+        height: auto;
+        font-size: 25px;
+        background-color: #fff;
+        box-shadow: 0px 10px 10px 0px;
+    }
+
+    .dropdown:hover .dropdown-content{
+        display:block;
+    }
+
+    .dropdown-content a{
+        display:block;
+        color: #000000;
+        padding:5px;
+        text-decoration: none;
+        padding: 20px 40px;
+    }
+
+    .dropdown-content a:hover{
+        color:#0a0a23;
+        background-color: #ddd;
+        border-radius:5px;
+    }
+
+    .Home {
+        margin: 17px -557px;
+        width: 150px;
+        height: 45px;
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .SubTxt {
+        width: 150px;
+        height: 45px;
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .Settings {
+        margin: 17px -367px;
+        width: 150px;
+        height: 45px;
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .Post {
+        margin: 17px 600px;
+        width: 150px;
+        height: 45px;
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .Profile{
+        margin: 17px -750px;
+        width: 150px;
+        height: 45px;
+        font-size: 25px;
+        font-family:Arial, Helvetica, sans-serif;
+    }
+
+    .Search {
+        margin: 17px -175px;
+        height: 40px;
+        width: 500px;
+        font-size: 25px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+</style>
